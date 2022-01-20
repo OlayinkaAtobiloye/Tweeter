@@ -1,0 +1,146 @@
+.editProfile{
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.profileHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 36px 16px 36px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.editProfile > p{
+    text-align: center;
+}
+
+.editProfile > p:first-of-type{
+    font-family: Noto Sans;
+font-size: 36px;
+font-weight: 400;
+line-height: 49px;
+color: #000000;
+}
+
+.editProfile > p:nth-of-type(2){
+    font-family: Noto Sans;
+font-size: 18px;
+font-weight: 300;
+line-height: 25px;
+margin-bottom: 24px;
+}
+
+.editProfileImage{
+    border-radius: 8px;
+    width: auto;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.profileDetails{
+    border: 1px solid #E0E0E0;
+border-radius: 12px;
+width: 70%;
+padding: 24px;
+}
+
+.profileDiv{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #D3D3D3;
+    padding: 16px;
+    height: 100px;
+    align-items: center;
+}
+
+.profileDiv:last-of-type{
+    border: none;
+    padding-bottom: 0%;
+}
+
+.profileDiv > p:first-of-type{
+    font-family: Noto Sans;
+font-size: 13px;
+font-weight: 500;
+line-height: 18px;
+color: #bdbdbd;
+}
+
+.profileDiv > p:nth-of-type(2){
+    font-family: Noto Sans;
+font-size: 18px;
+font-weight: 500;
+line-height: 25px;
+color: #333333;
+text-align: end;
+}
+
+.profileEditPrompt{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #D3D3D3;
+    height: 100px;
+    align-items: center;
+}
+
+.profileEditPrompt p:first-of-type{
+    font-family: Noto Sans;
+font-size: 24px;
+font-weight: 400;
+line-height: 33px;
+color: #000000;
+text-align: left;
+}
+
+.profileEditPrompt p:nth-of-type(2){
+    font-family: Noto Sans;
+font-size: 13px;
+font-weight: 500;
+line-height: 18px;
+color: #828282;
+}
+
+.profileEditPrompt > a:last-child{
+    height: 38px;
+width: 95px;
+border-radius: 12px;
+border: 1px solid #828282;
+font-family: Noto Sans;
+font-size: 16px;
+font-weight: 500;
+line-height: 22px;
+color: #828282;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+@media (max-width: 767px){
+    .profileHeader{
+        padding: 0%;
+    }
+
+    .profileDetails{
+        width: 100%;
+        padding: 0%;
+    }
+
+    .profileDetails {
+       border: none;
+    }
+    .profileDiv {
+        padding: 0px;
+    }
+
+    .profileEditPrompt{
+        padding: 0%;
+    }
+
+}

@@ -1,0 +1,76 @@
+.changephoto{
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.changephoto > span{
+    font-family: Noto Sans;
+font-size: 13px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px;
+color: #828282;
+margin-left: 24px;
+}
+
+.editProfileDiv{
+    margin-bottom: 24px;
+}
+
+.editProfileDiv > label{
+    display: block;
+    font-family: Noto Sans;
+font-size: 13px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px;
+color: #4f4f4f;
+margin-bottom: 8px;
+}
+
+.editProfileDiv > input{
+    height: 52px;
+width: 50%;
+border-radius: 12px;
+border: 1px solid #828282;
+}
+
+.editProfileDiv > input::placeholder{
+    font-family: Noto Sans;
+font-size: 13px;
+font-weight: 500;
+line-height: 18px;
+color: #bdbdbd;
+padding-left: 16px;
+}
+
+.editProfileDiv > input:focus{
+    outline: none;
+}
+
+.noborder{
+    border: none;
+}
+
+.editProfile button {
+    height: 38px;
+width: 82px;
+border-radius: 8px;
+background: #2F80ED;
+color: #ffffff;
+border-style: none;
+}
+
+.changephotoIcon{
+    position: absolute;
+    left: 8px;
+    color: #ffffff;
+}
+
+@media (max-width: 767px){
+    .editProfileDiv > input{
+        width: 100%;
+    }
+}

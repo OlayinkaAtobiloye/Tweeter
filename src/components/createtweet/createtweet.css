@@ -1,0 +1,133 @@
+.createTweet {
+  height: 200px;
+  border: 1px solid #e0e0e0;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 4px 0px #0000000d;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.createTweet > p {
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+  color: #4f4f4f;
+}
+
+.tweetBox {
+  height: 100px;
+  width: 80%;
+  border: none;
+  resize: none;
+  overflow: hidden;
+}
+
+.tweetBox:focus {
+  outline: none;
+}
+
+.tweetBox::placeholder {
+  padding: 12px;
+  position: absolute;
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.newtweetIcons {
+  margin-left: 58px;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.newtweetIcons i {
+  margin-right: 12px;
+  color: #2f80ed;
+}
+
+.newtweetIcons > div p {
+  display: flex;
+  align-items: center;
+  color: #2f80ed;
+  font-family: Noto Sans;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.newtweetIcons > p > i {
+  margin-right: 6px;
+}
+
+.newtweetIcons > button {
+  position: absolute;
+  right: 0%;
+  height: 32px;
+  width: 81px;
+  border-radius: 4px;
+  background-color: #2f80ed;
+  color: #ffffff;
+  border-style: none;
+}
+
+.replyPermission {
+  width: 234px;
+  /* height: 155px; */
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 10px;
+  position: absolute;
+  top: 45px;
+  left: 30px;
+}
+
+.replyPermission > p:first-child {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #4f4f4f;
+  margin-bottom: 6px;
+}
+
+.replyPermission > p:nth-child(2) {
+  font-family: Noto Sans;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #828282;
+  margin-bottom: 6px;
+}
+
+.replyPermission > div > a {
+  display: flex;
+  align-items: center;
+  font-family: Noto Sans;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #4f4f4f;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.replyPermission > div > a:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+.replyPermission > div > a > i {
+  margin-right: 10px;
+  color: #333333;
+}

@@ -1,0 +1,124 @@
+.post{
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+padding: 20px;
+margin-bottom: 16px;
+}
+
+.postingDetails{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+.posterImage{
+    width: 42px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+
+.posterName{
+    font-family: Poppins;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+color: #000000;
+margin-bottom: 6px;
+}
+
+.postingDate{
+    font-family: Noto Sans;
+font-size: 12px;
+font-weight: 500;
+line-height: 16px;
+color: #BDBDBD;
+}
+
+.tweet{
+    font-family: Noto Sans;
+font-size: 16px;
+font-weight: 400;
+line-height: 22px;
+color: #4F4F4F;
+margin-bottom: 16px;
+}
+
+.postImage{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.engagementLinks{
+    position: relative;
+    right: 0px;
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+
+.engagementLink{
+    font-family: Noto Sans;
+font-size: 12px;
+font-weight: 500;
+line-height: 16px;
+color: #BDBDBD;
+margin-left: 16px;
+}
+
+.engageLinks{
+    border: 1px solid #F2F2F2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+a.engageLink{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Noto Sans;
+font-size: 14px;
+font-weight: 500;
+line-height: 19px;
+color: #4F4F4F;
+padding: 8px;
+}
+
+span.engageLink{
+    margin-right: 8px;
+}
+
+.inputComment{
+    width: 90%;
+    background: #FAFAFA;
+border-radius: 8px;
+height: 40px;
+border: 1px solid #F2F2F2;
+padding: 10px;
+}
+
+.inputComment:focus{
+    border: 1px solid #F2F2F2;
+}
+
+.commentCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    position: relative;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.commentImageIcon{
+    position: absolute;
+    right: 16px;
+}

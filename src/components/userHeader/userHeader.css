@@ -1,0 +1,25 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    letter-spacing: -0.035em;
+    font-style: normal;
+}
+
+body{
+    background-color: #f2f2f2;
+}
+
+
+.headerImage{
+    background-image: url(../../Images/traveller.jpg);
+    height: 200px;
+    width: 100%;
+    margin-bottom: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

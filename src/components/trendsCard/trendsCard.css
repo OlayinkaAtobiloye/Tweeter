@@ -1,0 +1,40 @@
+.trendsCard {
+  box-shadow: 0px 2px 4px 0px #0000000d;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.trendsCard > p {
+  margin-bottom: 24px;
+  padding: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #4f4f4f;
+}
+
+.hashtag {
+  margin-bottom: 24px;
+}
+
+.hashtag > a {
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #333333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.hashtag > p {
+  font-family: Noto Sans;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #828282;
+}
