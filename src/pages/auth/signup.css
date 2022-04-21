@@ -1,103 +1,112 @@
-.signupPage{
-    width: 30%;
-    border: 1px solid #BDBDBD;
-    border-radius: 24px;
-    padding: 32px;
-    height: fit-content;
+.signupPage {
+  width: 30%;
+  border: 1px solid #bdbdbd;
+  border-radius: 24px;
+  padding: 32px;
+  height: fit-content;
 }
 
-.signupPage > form{
-    margin-top: 16px;
+.signupPage > form {
+  margin-top: 16px;
 }
 
-.signupPage > p:first-of-type{
-    font-family: Noto Sans;
-font-size: 18px;
-font-style: normal;
-font-weight: 600;
-line-height: 25px;
-color: #333333;
-margin-top: 36px;
+.signupPage > p:first-of-type {
+  font-family: Noto Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+  color: #333333;
+  margin-top: 36px;
 }
 
-.signupPage > p:nth-of-type(2){
-    font-family: Noto Sans;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 22px;
-margin-top: 24px;
-margin-bottom: 24px;
+.signupPage > p:nth-of-type(2) {
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
-.signupPage input{
-    border: 1px solid #BDBDBD;
+.signupPage input {
+  border: 1px solid #bdbdbd;
+  width: 100%;
+  height: 36px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  display: block;
+  padding: 8px;
+  padding-left: 36px;
+}
+
+.signupPage input::placeholder {
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  color: #828282;
+}
+
+.signupPage input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.signupPage button {
+  width: 100%;
+  background: #2f80ed;
+  border-radius: 8px;
+  height: 36px;
+  border-style: none;
+  color: #ffffff;
+  margin-bottom: 32px;
+}
+
+.signupPage input:focus {
+  outline: none;
+}
+
+.signupPage > div > p {
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  color: #828282;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.signupPage > p:last-of-type {
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: center;
+  color: #828282;
+}
+
+.signupPage > form i {
+  position: absolute;
+  color: #828282;
+  height: auto;
+  width: 16px;
+  margin-right: 8px;
+  margin-top: 5px;
+  padding-left: 8px;
+}
+
+@media (max-width: 767px) {
+  .signupPage {
     width: 100%;
-    height: 36px;
-    margin-bottom: 24px;
-    border-radius: 8px;
-    display: block;
+    border: none;
+    padding: 16px;
+  }
 }
 
-.signupPage input::placeholder{
-    padding-left: 24px;
-    font-family: Noto Sans;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 22px;
-color: #828282;
-}
-
-.signupPage button{
-    width: 100%;
-    background: #2F80ED;
-    border-radius: 8px;
-    height: 36px;
-    border-style: none;
-    color: #ffffff;
-    margin-bottom: 32px;
-}
-
-.signupPage input:focus{
-    outline: none;
-}
-
-.signupPage > div > p{
-    font-family: Noto Sans;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 19px;
-color: #828282;
-text-align: center;
-margin-bottom: 16px;
-}
-
-.signupPage > p:last-of-type{
-    font-family: Noto Sans;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 19px;
-text-align: center;
-color: #828282;
-}
-
-.signupPage > form  span{
-    position: absolute;
-    color: #828282;
-    height: auto;
-    width: 16px;
-    margin-right: 8px;
-    margin-top: 5px;
-}
-
-@media (max-width: 767px){
-    .signupPage{
-        width: 100%;
-        border: none;
-        padding: 16px;
-    }
-
+.hide {
+  display: none;
 }

@@ -7,8 +7,10 @@ import Post from "../../components/post/post";
 import LinksCard from "../../components/linksCard/linksCard";
 import HomeContainer from "../../components/homeContainer/homeContainer";
 import SideBar from "../../components/Sidebar/Sidebar";
+import Feed from "../../components/feed/feed";
 
-const VisitedUser = (props) => {
+
+const User = (props) => {
   return (
     <div>
       <Header />
@@ -20,11 +22,19 @@ const VisitedUser = (props) => {
           <LinksCard />
         </SideBar>
         <HomeContainer>
-          <Post />
+          <Feed />
         </HomeContainer>
       </Container>
     </div>
   );
 };
 
-export default VisitedUser;
+const mapStateToProps = (state) => {
+  return {
+    imageURL: state.imageURL,
+    username: state.username,
+    bio: state.bio,
+  };
+};
+
+export default User;

@@ -5,7 +5,7 @@
     position: relative;
 }
 
-.changephoto > span{
+.changephoto > label span{
     font-family: Noto Sans;
 font-size: 13px;
 font-style: normal;
@@ -35,6 +35,7 @@ margin-bottom: 8px;
 width: 50%;
 border-radius: 12px;
 border: 1px solid #828282;
+padding: 8px;
 }
 
 .editProfileDiv > input::placeholder{
@@ -43,7 +44,7 @@ font-size: 13px;
 font-weight: 500;
 line-height: 18px;
 color: #bdbdbd;
-padding-left: 16px;
+/* padding-left: 16px; */
 }
 
 .editProfileDiv > input:focus{
@@ -67,6 +68,16 @@ border-style: none;
     position: absolute;
     left: 8px;
     color: #ffffff;
+    width: 16px;
+}
+
+.file-input{
+    display: flex;
+    align-items: center;
+}
+
+#file-input{
+    display: none;
 }
 
 @media (max-width: 767px){

@@ -5,6 +5,8 @@ import TweeterMobile from "../../Images/tweeter-small.svg";
 import UserImage from "../../Images/johndoe.jpg";
 import ProfileDropdown from "../profilebackdrop/profilebackdrop";
 import { Link, NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+
 
 const Header = (props) => {
   const [showDropdown, setshowDropdown] = useState(false)
@@ -24,8 +26,8 @@ const Header = (props) => {
       </nav>
       <div className="userProfile">
         <a className="userSummary" onClick={() => setshowDropdown(!showDropdown)}>
-          <img src={UserImage} className="userImage" />
-          <a className="username">John Doe</a>
+          <img src={props.imageURL} className="userImage" />
+          <a className="username">{props.username}</a>
         </a>
         {
           showDropdown ?
@@ -38,4 +40,14 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    imageURL: state.imageURL,
+    username: state.username,
+    error: state.error,
+  };
+};
+
+
+
+export default connect(mapStateToProps, null)(Header);

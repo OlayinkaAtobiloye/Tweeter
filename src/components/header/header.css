@@ -7,12 +7,13 @@
   background-color: #ffffff;
   /* margin-bottom: 32px; */
 }
-a{
+a {
   text-decoration: none;
 }
 .homePage {
   display: flex;
   align-items: center;
+  padding-left: 16px;
 }
 
 .navBar {
@@ -20,6 +21,7 @@ a{
   align-items: center;
   justify-content: space-around;
   width: 30%;
+  height: 100%;
 }
 
 .navLink {
@@ -30,11 +32,15 @@ a{
   line-height: 21px;
   color: #828282;
   text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.navLink.active{
-  color: #2F80ED;
-  border-bottom: 3px solid #2F80ED;
+.navLink.active {
+  color: #2f80ed;
+  border-bottom: 3px solid #2f80ed;
   border-radius: 8px 8px 0px 0px;
 }
 
@@ -63,19 +69,25 @@ a{
 }
 
 .userImage {
-  width: 32px;
-  height: auto;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
-  margin-right: 8px;
+  /* margin-right: 8px; */
+  object-fit: cover;
+  margin-right: 16px;
 }
 
-.username{
+.username {
   font-family: Noto Sans;
-font-size: 12px;
-font-weight: 700;
-line-height: 16px;
-color: #333333;
-text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #333333;
+  text-decoration: none;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {

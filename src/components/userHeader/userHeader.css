@@ -12,14 +12,16 @@ body{
 
 .headerImage{
     background-image: url(../../Images/traveller.jpg);
-    height: 200px;
+    /* height: 200px; */
     width: 100%;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    object-fit: contain;
+    padding-top: 5rem;
 }
 

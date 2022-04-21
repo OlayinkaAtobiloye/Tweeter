@@ -6,8 +6,10 @@ import TweeterMobile from "../../Images/tweeter-small.svg";
 import UserImage from "../../Images/johndoe.jpg";
 import Tweeter from "../../Images/tweeter.svg";
 import "./profile.css";
+import updateprofile from "../updateprofile/updateprofile";
+import { connect } from "react-redux";
 
-const ProfilePage = () => {
+const ProfilePage = (props) => {
   const [showDropdown, setshowDropdown] = useState(false);
 
   return (
@@ -21,8 +23,8 @@ const ProfilePage = () => {
             className="userSummary"
             onClick={() => setshowDropdown(!showDropdown)}
           >
-            <img src={UserImage} className="userImage" />
-            <a className="username">John Doe</a>
+            <img src={props.imageURL} className="userImage" />
+            <a className="username">{props.username}</a>
           </a>
           {showDropdown ? <ProfileDropdown /> : null}
         </div>
@@ -35,35 +37,47 @@ const ProfilePage = () => {
           <p>Profile</p>
           <p>Some info may be visible to other people</p>
           </div>
-          <Link to="/">Edit</Link>
+          <Link to="/updateprofile">Edit</Link>
         </div>
         <div className="profileDiv">
           <p>PHOTO</p>
-          <img src={UserImage} className="editProfileImage" />
+          <img src={props.imageURL} className="editProfileImage" />
         </div>
         <div className="profileDiv">
           <p>NAME</p>
-          <p>Xanthe Neal</p>
+          <p>{props.username}</p>
         </div>
         <div className="profileDiv">
           <p>BIO</p>
-          <p>I am a software developer and a big fan of devchallenges...</p>
+          <p>{props.bio}</p>
         </div>
         <div className="profileDiv">
           <p>PHONE</p>
-          <p>908249274292</p>
+          <p>{props.phone}</p>
         </div>
         <div className="profileDiv">
           <p>EMAIL</p>
-          <p>xanthe.neal@gmail.com</p>
+          <p>{props.email}</p>
         </div>
-        <div className="profileDiv">
+        {/* <div className="profileDiv">
           <p typeof="password">PASSWORD</p>
           <p>dunno</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
 };
 
-export default ProfilePage;
+const mapStateToProps = (state) => {
+  return {
+    imageURL: state.imageURL,
+    bio: state.bio,
+    username: state.username,
+    email: state.email,
+    error: state.error,
+    message: state.message,
+    phone: state.phone
+  };
+};
+
+export default connect(mapStateToProps, null)(ProfilePage);

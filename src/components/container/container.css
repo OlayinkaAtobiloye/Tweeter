@@ -1,7 +1,7 @@
 .container{
     display: flex;
     justify-content: space-between;
-    width: 70vw;
+    width: 80vw;
     margin: 0 auto;
     margin-top: 32px;
 }

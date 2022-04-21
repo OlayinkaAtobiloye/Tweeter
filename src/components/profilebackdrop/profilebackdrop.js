@@ -1,26 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./profilebackdrop.css";
+import { connect } from "react-redux";
 
 const ProfileDropdown = (props) => {
   return (
     <div className="profileDropdown">
       <React.Fragment>
-        <a className="dropdownLink">
+        <Link className="dropdownLink" to={`/profile/${props.userId}`}>
           <span className="material-icons-outlined">account_circle</span>
           My Profile
-        </a>
+        </Link>
         <a className="dropdownLink">
           <span className="material-icons-outlined">group</span>Group Chat
         </a>
-        <a className="dropdownLink">
+        <Link to="/settings" className="dropdownLink">
           <span className="material-icons-outlined">settings</span>Settings
-        </a>
+        </Link>
       </React.Fragment>
-      <a className="dropdownLink logout">
+      <Link to="/" className="dropdownLink logout" >
         <span className="material-icons-outlined">logout</span>Logout
-      </a>
+      </Link>
     </div>
   );
 };
 
-export default ProfileDropdown;
+const mapStateToProps = (state) => {
+  return {
+    userId: state.userId
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch({type: "SET_LOGOUT"})
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileDropdown);

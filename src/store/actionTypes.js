@@ -1,0 +1,9 @@
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_FAIL = "AUTH_FAILURE";
+export const AUTH_START = "AUTH_START";
+export const SAVE_SUCCESS = "SAVE_SUCCESS";
+export const TWEET_SUCCESS = "TWEET_SUCCESS";
+export const RESET_POSTED_TWEET = "RESET_POSTED_TWEET";
+export const TWEET_FAIL = "TWEET_FAIL";
+export const RESET_ERROR = "RESET_ERROR";
+export const SET_LOGOUT = "SET_LOGOUT";

@@ -12,8 +12,9 @@ border-top: 1px solid #E0E0E0;
 
 .suggestedUserProfile > div >img{
 width: 42px;
-height: auto;
+height: 42px;
 border-radius: 8px;
+object-fit: cover;
 }
 
 

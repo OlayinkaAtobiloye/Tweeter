@@ -6,9 +6,10 @@ import SortedTweets from "../../components/sortedtweets/sortedtweets";
 import Header from "../../components/header/header";
 import SearchBox from "../../components/searchbox/searchbox";
 import Feed from "../../components/feed/feed";
+import FullPost from "../../components/fullPost/fullPost";
 
 
-const ExplorePage = props => {
+const FullPostPage = props => {
     return(
         <div>
             <Header/>
@@ -17,12 +18,11 @@ const ExplorePage = props => {
                     <SortedTweets/>
                 </SideBar>
                 <HomeContainer>
-                    <SearchBox/>
-                    <Feed/>
+                    <FullPost/>
                 </HomeContainer>
             </Container>
         </div>
     )
 }
 
-export default ExplorePage;
+export default FullPostPage;

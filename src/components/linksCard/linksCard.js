@@ -1,7 +1,7 @@
 import React from "react";
 import './linksCard.css';
 
-const LinksCard = props => {
+const LinksCard = (props) => {
     return(
     <div className="linkCard">
         <a className="link">Tweets</a>

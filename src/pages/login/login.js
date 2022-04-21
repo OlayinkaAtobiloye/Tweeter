@@ -2,24 +2,96 @@ import React from "react";
 import Tweeter from "../../Images/tweeter.svg";
 import "./login.css";
 import Auth from "../../components/auth/auth";
+import Loader from "../../components/loader/loader";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../../store/action";
+import { useNavigate, useLocation} from 'react-router-dom';
 
-const LoginPage = () => {
-  return (
+
+
+class LoginPage extends React.Component{
+
+  state = {
+    error: false,
+    requestBody: {
+      email: "",
+      password: "",
+    },
+  };
+
+  inputChangedHandler = (event) => {
+    const updatedFormBody = {
+      ...this.state.requestBody,
+    };
+    updatedFormBody[event.target.name] = event.target.value;
+    this.setState({ requestBody: updatedFormBody });
+  };
+
+  submitHandler = (event) => {
+    event.preventDefault();
+    const formdata = this.state.requestBody
+    this.props.onAuth(formdata["email"], formdata["password"]);
+  };
+
+  componentDidUpdate(){
+    if (this.props.error){
+      setTimeout(this.props.onResetError, 2000)
+    } 
+    if (this.props.auth){
+      console.log(this.props.location)
+      if (this.props.location.state?.from){
+        this.props.navigate(this.props.location.state.from)
+      }
+    }
+  }
+  
+  render(){
+    
+    let errorMessage =
+  <p style={{color: "red"}}>{this.props.error}</p>
+    return (
     <Auth>
+      {
+        this.props.loading 
+        ?
+        <Loader/>
+        :
+        null
+      }
       <div className="signupPage">
         <Link to="/">
           <img src={Tweeter} className="tweeterHome" />
         </Link>
-        <form>
-          <span class="material-icons-outlined">email</span>
-          <input type="email" placeholder="Email" />
-          <span class="material-icons-outlined">
-lock
-</span>
-          <input type="password" placeholder="Password" />
-          <button>Login</button>
-        </form>
+        {errorMessage}
+        <form onSubmit={this.submitHandler}>
+        <i
+              className="material-icons-outlined"
+            >
+              email
+            </i>
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              onMouseOver={() => this.setState({ focus: { email: true } })}
+              onChange={this.inputChangedHandler}
+            />
+            <i
+              className="material-icons-outlined"
+            >
+              lock
+            </i>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              onMouseOver={() => this.setState({ focus: { password: true } })}
+              onMouseLeave={() => this.setState({ focus: { password: false } })}
+              onChange={this.inputChangedHandler}
+            />
+            <button>Start coding now</button>
+          </form>
         <div>
           <p>or continue with these social profile</p>
           {/* <i class="fa fa-google"></i>
@@ -33,6 +105,37 @@ lock
       </div>
     </Auth>
   );
+              }
+}
+;
+
+const mapStateToProps =state => {
+  return{
+    loading: state.loading,
+    error: state.error,
+    auth: state.auth
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return{
+    onAuth: (email, password) => dispatch(actions.auth(email, password, false)),
+    onResetError: () => dispatch({type: "RESET_ERROR"})
+  }
+}
+
+
+
+const withHooksHOC = (Component) => {
+  return props => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    return(
+      <Component navigate={navigate} location={location} {...props}/>
+    )
+  }
 };
 
-export default LoginPage;
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withHooksHOC(LoginPage));

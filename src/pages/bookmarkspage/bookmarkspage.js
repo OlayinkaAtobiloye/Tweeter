@@ -5,6 +5,8 @@ import HomeContainer from "../../components/homeContainer/homeContainer";
 import Post from "../../components/post/post";
 import Header from "../../components/header/header";
 import LinksCard from "../../components/linksCard/linksCard";
+import Feed from "../../components/feed/feed";
+import Bookmarks from "../../components/bookmarks/bookmarks";
 
 const BookmarksPage = props => {
     return(
@@ -15,7 +17,7 @@ const BookmarksPage = props => {
                     <LinksCard/>
                 </SideBar>
                 <HomeContainer>
-                    <Post/>
+                    <Bookmarks/>
                 </HomeContainer>
             </Container>
         </div>
