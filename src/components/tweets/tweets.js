@@ -1,18 +1,22 @@
-import { render } from "@testing-library/react";
 import Post from "../post/post";
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import Spinner from "../spinner/spinner";
+import { useParams } from "react-router-dom";
 
-class Bookmarks extends React.Component {
+class Tweets extends React.Component {
   state = {
     tweets: [],
     loading: true,
     error: false
   };
+
+  
   componentDidMount() {
-    let url = "https://tweeter-test-yin.herokuapp.com/bookmarks";
+    const userId = this.props.params.user_id;
+    console.log(this.props)
+    let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/posts`;
     axios({
       method: "get",
       url: url,
@@ -21,7 +25,9 @@ class Bookmarks extends React.Component {
         Authorization: this.props.token,
       },
     })
-      .then((res) => this.setState({ tweets: res.data.bookmarks, loading: false}))
+      .then((res) => {
+        console.log(res)  
+        this.setState({ tweets: res.data, loading: false})})
       .catch((err) => this.setState({error: true, loading: false}));
   }
 
@@ -51,13 +57,23 @@ class Bookmarks extends React.Component {
         ))}
         {!this.state.loading && !this.state.error && this.state.tweets.length === 0  && (
           <p style={{ display: "flex", justifyContent: "center" }}>
-            You don't have any saved post.
+            User doesn't have any post yet.
           </p>
         )}
       </section>
     );
   }
 }
+
+
+const withHooksHOC = (Component) => {
+    return props => {
+        const params = useParams();
+      return(
+        <Component params={params} {...props}/>
+      )
+    }
+  };
 
 const mapStateToProps = (state) => {
   return {
@@ -67,4 +83,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Bookmarks);
+export default connect(mapStateToProps, null)(withHooksHOC(Tweets));

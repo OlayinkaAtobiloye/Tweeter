@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes";
 
-const initialState = {
+let initialState = {
   auth: false,
   token: null,
   userId: null,
@@ -14,6 +14,8 @@ const initialState = {
   postedTweet: null,
 };
 
+
+
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.AUTH_START:
@@ -22,6 +24,10 @@ const Reducer = (state = initialState, action) => {
         loading: true,
       };
     case actionTypes.AUTH_SUCCESS:
+      // localStorage.setItem(
+      //   'user',
+      //   action
+      // )
       return {
         ...state,
         loading: false,
@@ -76,6 +82,11 @@ const Reducer = (state = initialState, action) => {
             return{
               initialState
             }
+            case 'SET_COMMENT':
+              return{
+                ...state,
+                commentSent: action.value
+              }
   }
 
   

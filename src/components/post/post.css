@@ -93,6 +93,14 @@ padding: 8px;
 cursor: pointer;
 }
 
+.sendIcon{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+}
+
 span.engageLink{
     margin-right: 8px;
     font-size: 16px;
@@ -100,12 +108,13 @@ span.engageLink{
 }
 
 .inputComment{
-    width: 90%;
+    width: calc(100% - 22px);
     background: #FAFAFA;
 border-radius: 8px;
 height: 40px;
 border: 1px solid #F2F2F2;
 padding: 10px;
+outline: none;
 }
 
 .inputComment:focus{
@@ -124,7 +133,9 @@ padding: 10px;
 
 .commentImageIcon{
     position: absolute;
-    right: 16px;
+    right: 32px;
+    width: 16px;
+    height: 16px;
 }
 
 

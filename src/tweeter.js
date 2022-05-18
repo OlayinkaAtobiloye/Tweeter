@@ -29,6 +29,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const Tweeter = (props) => {
   const [theme, setTheme] = useState("light");
+  // const location = useLocation()
   useEffect(() => {
     if (window.matchMedia) {
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -40,11 +41,12 @@ const Tweeter = (props) => {
   }, []);
 
   let location = useLocation();
+  console.log(location)
 
   return (
       
         <Routes>
-          <Route path="register" element={<Navigate to="/signin" state={{from: location}}/>} />
+          <Route path="register" element={<Navigate to="/signup" />} />
           <Route path="signup" element={<SignupPage />} />
           {props.auth ? (
             <Route exact path="/" element={<HomePage />} />
@@ -59,7 +61,7 @@ const Tweeter = (props) => {
           {props.auth ? (
             <Route path="/bookmarks" element={<BookmarksPage />} />
           ) : (
-            <Route path="/bookmarks" element={<SignupPage />} />
+            <Route path="/bookmarks" element={<Navigate to="/signin" state={{from: location}}/>} />
           )}
           {props.auth ? (
             <Route path="/profile" element={<User />} />
@@ -78,7 +80,7 @@ const Tweeter = (props) => {
           )}
           <Route path="/user" element={<VisitedUser />} />
           {props.auth ? (
-            <Route path="/login" element={<Navigate to="/" replace/>} />
+            <Route path="/login" element={<Navigate to="/" replace state={{from: location}}/>} />
           ) : (
             <Route path="/login" element={<LoginPage />} />
           )}
@@ -89,9 +91,9 @@ const Tweeter = (props) => {
             )}
             {
               props.auth ? (
-                <Route path="/profile/:user_id" element={<User/>} />
+                <Route path="/profile/:exact/:user_id" element={<User/>} key={location.key} />
               ) : (
-                <Route path="/profile/:user_id" element={<Navigate to="/signin" replace state={{from: location}}/>} />
+                <Route path="/profile/:exact/:user_id" element={<Navigate to="/signin" replace state={{from: location}}/>} />
               )
             }
           <Route path="/signin" element={<LoginPage />} />

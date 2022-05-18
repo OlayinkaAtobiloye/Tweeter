@@ -1,0 +1,29 @@
+.mobileNav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 16px;
+    background: #FFFFFF;
+    margin: -16px;
+}
+
+.mobileNav a{
+    color: #828282;
+
+}
+
+.mobileNav > ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mobileNav .active{
+    color: #2F80ED;
+}
+
+@media (min-width: 767px) {
+.mobileNav{
+    display: none;
+}
+}

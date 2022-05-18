@@ -3,6 +3,7 @@
     background: #FAFAFA;
     align-items: self-start;
     padding: 12px;
+    margin-bottom: 12px;
 }
 
 .Comment > div > div:first-child > a:first-child{

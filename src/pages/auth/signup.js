@@ -53,10 +53,9 @@ class SignupPage extends React.Component {
           <Link to="/">
             <img src={Tweeter} className="tweeterHome" />
           </Link>
-          <p>Join thousands of learners from around the world </p>
+          <p>Join thousands of tweeps from around the world </p>
           <p>
-            Master web development by making real-life projects. There are
-            multiple paths for you to choose
+            Happening now. Join Tweeter today.
           </p>
           {errorMessage}
           <form autoComplete="off" onSubmit={this.submitHandler}>
@@ -83,11 +82,11 @@ class SignupPage extends React.Component {
               placeholder="Password"
               onChange={this.inputChangedHandler}
             />
-            <button>Start coding now</button>
+            <button>Start tweeting now</button>
           </form>
-          <div>
+          {/* <div>
             <p>or continue with these social profile</p>
-          </div>
+          </div> */}
           <p>
             Already a member? <Link to="/login">Login</Link>
           </p>

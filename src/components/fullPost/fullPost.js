@@ -4,20 +4,20 @@ import { connect } from "react-redux";
 import Post from "../post/post";
 import Comment from "../comment/comment";
 import { useParams } from "react-router-dom";
+import Spinner from "../spinner/spinner";
 
 const FullPost = (props) => {
   const [post, setPost] = useState("");
   const [comments, setComments] = useState([]);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [commentSent, setCommentsent] = useState(null)
   let { user_id, post_id } = useParams();
-  // console.log(post_id);
+  
 
-  const setState = (state) => {
-      setComments(state.comments)
-      setPost(state.post)
-  }
 
   useEffect(() => {
+    setLoading(true)
     let url = `https://tweeter-test-yin.herokuapp.com/${post_id}/comments`;
     axios({
       method: "get",
@@ -28,15 +28,51 @@ const FullPost = (props) => {
       },
     })
       .then(
-        (res) => setState(res.data),
-        console.log(comments)
+        (res) => {setComments(res.data.comments)
+          setPost(res.data.post)
+          setLoading(false)},
       )
-      .catch((err) => console.log(err));
+      .catch((err) => {setError(true)
+        setLoading(false)
+      }
+      )
   }, []);
+
+
+  useEffect(() => {
+    setLoading(true)
+    let url = `https://tweeter-test-yin.herokuapp.com/${post_id}/comments`;
+    axios({
+      method: "get",
+      url: url,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: props.token,
+      },
+    })
+      .then(
+        (res) => {setComments(res.data.comments)
+          setPost(res.data.post)
+          setLoading(false)},
+      )
+      .catch((err) => {setError(true)
+        setLoading(false)
+      }
+      )
+  }, [props.commentSent]);
+
+
+  console.log(comments)
 
   return (
     <div className="fullPost">
-      {post && (
+      {
+        loading && <Spinner/>
+      }
+      {
+        error &&  <p style={{'display': 'flex', 'justifyContent': 'center'}}>Sorry, an error occured. Please try again.</p>
+      }
+      {!loading && post && 
         <Post
           user={post.user}
           caption={post.caption}
@@ -45,20 +81,30 @@ const FullPost = (props) => {
           retweets={post.retweets}
           datetime={post.createdAt}
           post_id={post._id}
+          saves={post.bookmarks}
+          retweeted={post.retweeted}
+          liked={post.liked}
+          likes={post.likes}
         />
-      )}
+      }
 
       {
           
-        comments.map((comment) => (
+        comments.map((comment, index) => (
           <Comment
+          id={comment._id.$oid}
             user={comment.user}
             caption={comment.caption}
             datetime={comment.createdAt}
+            likes={comment.likes}
+            liked={comment.liked}
+            date={comment.createdAt}
+            key={index}
           />
         ))}
         {
-          comments.length == 0 && <p style={{'display': 'flex', 'justifyContent': 'center'}}>There are no comments yet.</p>
+          !loading && !error &&  comments.length === 0 &&
+          <p style={{'display': 'flex', 'justifyContent': 'center'}}>There are no comments yet.</p>
         }
     </div>
   );
@@ -69,6 +115,7 @@ const mapStateToProps = (state) => {
     imageURL: state.imageURL,
     username: state.username,
     token: state.token,
+    commentSent: state.commentSent
   };
 };
 

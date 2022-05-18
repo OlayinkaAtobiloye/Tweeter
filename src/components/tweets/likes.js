@@ -1,18 +1,22 @@
-import { render } from "@testing-library/react";
 import Post from "../post/post";
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import Spinner from "../spinner/spinner";
+import { useParams } from "react-router-dom";
 
-class Bookmarks extends React.Component {
+class Likes extends React.Component {
   state = {
     tweets: [],
     loading: true,
     error: false
   };
+
+  
   componentDidMount() {
-    let url = "https://tweeter-test-yin.herokuapp.com/bookmarks";
+    const userId = this.props.params.user_id;
+    console.log(this.props)
+    let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/likes`;
     axios({
       method: "get",
       url: url,
@@ -21,7 +25,9 @@ class Bookmarks extends React.Component {
         Authorization: this.props.token,
       },
     })
-      .then((res) => this.setState({ tweets: res.data.bookmarks, loading: false}))
+      .then((res) => {
+        console.log(res)  
+        this.setState({ tweets: res.data, loading: false})})
       .catch((err) => this.setState({error: true, loading: false}));
   }
 
@@ -34,30 +40,40 @@ class Bookmarks extends React.Component {
         {
         this.state.error &&  <p style={{'display': 'flex', 'justifyContent': 'center'}}>Sorry, an error occured. Please try again.</p>
       }
-        {this.state.tweets.map((post) => (
+        {this.state.tweets.map((tweet) => (
           <Post
-            user={post.user}
-            caption={post.caption}
-            image={post.post_urls[0]}
-            comments={post.comments}
-            retweets={post.retweets}
-            datetime={post.createdAt}
-            post_id={post._id}
-            liked={post.liked}
-            likes={post.likes}
-            retweeted={post.retweeted}
-            saved={post.saved}
+            user={tweet.post.user}
+            caption={tweet.post.caption}
+            image={tweet.post.post_urls[0]}
+            comments={tweet.post.comments}
+            retweets={tweet.post.retweets}
+            datetime={tweet.post.createdAt}
+            post_id={tweet.post._id}
+            liked={tweet.post.liked}
+            likes={tweet.post.likes}
+            retweeted={tweet.post.retweeted}
+            saved={tweet.post.saved}
           />
         ))}
         {!this.state.loading && !this.state.error && this.state.tweets.length === 0  && (
           <p style={{ display: "flex", justifyContent: "center" }}>
-            You don't have any saved post.
+            User doesn't have any liked post yet.
           </p>
         )}
       </section>
     );
   }
 }
+
+
+const withHooksHOC = (Component) => {
+    return props => {
+        const params = useParams();
+      return(
+        <Component params={params} {...props}/>
+      )
+    }
+  };
 
 const mapStateToProps = (state) => {
   return {
@@ -67,4 +83,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Bookmarks);
+export default connect(mapStateToProps, null)(withHooksHOC(Likes));

@@ -88,6 +88,12 @@ div.tweetbox {
   border-style: none;
 }
 
+.newtweetIcons > button:disabled {
+  background-color: rgba(239, 239, 239, 0.3) !important ;
+  color: rgba(16, 16, 16, 0.3) !important;
+  border-color: rgba(118, 118, 118, 0.3) !important;
+}
+
 .replyPermission {
   width: 234px;
   /* height: 155px; */
@@ -148,6 +154,16 @@ div.tweetbox {
   padding-left: 16px;
   color: white !important;
   background-color: rgb(28, 163, 28);
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.tweetFail{
+  width: 100%;
+  padding: 8px;
+  padding-left: 16px;
+  color: white !important;
+  background-color: rgb(240, 11, 11);
   border-radius: 5px;
   margin-bottom: 8px;
 }

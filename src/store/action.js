@@ -8,7 +8,6 @@ export const authStart = () => {
 };
 
 export const authSuccess = (res) => {
-  console.log(res)
   return {
     type: actionTypes.AUTH_SUCCESS,
     token: res.token,
@@ -71,7 +70,6 @@ export const auth = (email, password, method) => {
     axios
       .post(url, authData)
       .then((response) => {
-        console.log(response);
         dispatch(authSuccess(response.data));
       })
       .catch((error) => {

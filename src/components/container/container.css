@@ -4,6 +4,7 @@
     width: 80vw;
     margin: 0 auto;
     margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 @media (max-width: 767px){
@@ -11,5 +12,6 @@
         width: 100vw;
         padding: 16px;
         flex-direction: column;
+        margin-top: 0;
     }
 }

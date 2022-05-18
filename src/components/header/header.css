@@ -40,8 +40,8 @@ a {
 
 .navLink.active {
   color: #2f80ed;
-  border-bottom: 3px solid #2f80ed;
-  border-radius: 8px 8px 0px 0px;
+  /* border-bottom: 3px solid #2f80ed;
+  border-radius: 8px 8px 0px 0px; */
 }
 
 .appName {

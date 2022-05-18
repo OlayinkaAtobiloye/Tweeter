@@ -19,3 +19,7 @@ line-height: 21px;
 margin-bottom: 25px;
 color: #828282;
 }
+
+.link.active{
+    color: #2f80ed;
+}

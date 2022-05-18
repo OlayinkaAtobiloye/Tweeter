@@ -26,25 +26,20 @@ class UpdateProfilePage extends React.Component {
     loading: false
   };
 
-  static getDerivedStateFromProps(props, state){
-    return{...state,
-      error: props.error,
-    message: props.message,
-    }
-  }
+
 
   setshowDropdown = () => {
-    return {
-      showDropdown: !this.state.showDropdown,
-    };
+   
+     this.setState({showDropdown: !this.state.showDropdown})
+    
   };
 
-  componentDidUpdate(){
-    this.setState({loading: false})
-      setTimeout(
-        this.setState({message: null, error: null}), 2000
-      )
-  }
+  // componentDidUpdate(){
+  //   this.setState({loading: false})
+  //     setTimeout(
+  //       this.setState({message: null, error: null}), 2000
+  //     )
+  // }
 
   handleChange = (event) => {
     let name = event.target.name;
@@ -140,9 +135,9 @@ class UpdateProfilePage extends React.Component {
   render() {
     return (
       <div className="editProfile">
-        {
+        {/* {
           this.state.loading && <Loader/>
-        }
+        } */}
         <header className="profileHeader">
           <Link to="/">
             <img src={Tweeter} />
@@ -192,7 +187,8 @@ class UpdateProfilePage extends React.Component {
             <input 
             placeholder={this.props.username} 
             name="username" 
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+            maxLength="20"/>
           </div>
           <div className="editProfileDiv">
             <label>Bio</label>
@@ -200,6 +196,7 @@ class UpdateProfilePage extends React.Component {
               placeholder={this.props.bio}
               name="bio"
               onChange={this.handleChange}
+              maxLength="160"
             />
           </div>
           <div className="editProfileDiv">
