@@ -5,17 +5,16 @@ import Container from "../../components/container/container";
 import Header from "../../components/header/header";
 import LinksCard from "../../components/linksCard/linksCard";
 import HomeContainer from "../../components/homeContainer/homeContainer";
-import SideBar from "../../components/Sidebar/Sidebar";
+import SideBar from "../../components/sidebar/sidebar";
 import Tweets from "../../components/tweets/tweets";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Media from "../../components/tweets/media";
 import Likes from "../../components/tweets/likes";
+import Retweets from "../../components/tweets/retweets";
 
 
 const User = props => {
-  const navigate = useNavigate();
   let exact = useParams().exact;
-  console.log(exact)
   
   return (
     <div>
@@ -31,6 +30,7 @@ const User = props => {
           {
             exact == 'tweets' ? <Tweets/>
             : exact == 'media' ? <Media/>
+            : exact == 'retweets' ? <Retweets/>
             : <Likes/>
           }
         </HomeContainer>

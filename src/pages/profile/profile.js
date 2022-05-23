@@ -34,8 +34,8 @@ const ProfilePage = (props) => {
       <div className="profileDetails">
         <div className="profileEditPrompt">
           <div>
-          <p>Profile</p>
-          <p>Some info may be visible to other people</p>
+            <p>Profile</p>
+            <p>Some info may be visible to other people</p>
           </div>
           <Link to="/updateprofile">Edit</Link>
         </div>
@@ -76,7 +76,7 @@ const mapStateToProps = (state) => {
     email: state.email,
     error: state.error,
     message: state.message,
-    phone: state.phone
+    phone: state.phone,
   };
 };
 

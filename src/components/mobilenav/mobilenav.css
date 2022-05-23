@@ -1,29 +1,28 @@
-.mobileNav{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 16px;
-    background: #FFFFFF;
-    margin: -16px;
+.mobileNav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  background: #ffffff;
+  margin: -16px;
 }
 
-.mobileNav a{
-    color: #828282;
-
+.mobileNav a {
+  color: #828282;
 }
 
-.mobileNav > ul{
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
+.mobileNav > ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
 }
 
-.mobileNav .active{
-    color: #2F80ED;
+.mobileNav .active {
+  color: #2f80ed;
 }
 
 @media (min-width: 767px) {
-.mobileNav{
+  .mobileNav {
     display: none;
-}
+  }
 }

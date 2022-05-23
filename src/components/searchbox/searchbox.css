@@ -15,6 +15,7 @@
   height: 54px;
   border-style: none;
   padding: 10px;
+  padding-left: 36px;
 }
 
 .searchBox:focus {
@@ -27,7 +28,6 @@
   font-weight: 500;
   line-height: 22px;
   color: #bdbdbd;
-  padding-left: 36px;
 }
 
 .searchIcon {

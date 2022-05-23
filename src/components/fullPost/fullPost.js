@@ -11,13 +11,11 @@ const FullPost = (props) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [commentSent, setCommentsent] = useState(null)
+  const [commentSent, setCommentsent] = useState(null);
   let { user_id, post_id } = useParams();
-  
-
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     let url = `https://tweeter-test-yin.herokuapp.com/${post_id}/comments`;
     axios({
       method: "get",
@@ -27,20 +25,19 @@ const FullPost = (props) => {
         Authorization: props.token,
       },
     })
-      .then(
-        (res) => {setComments(res.data.comments)
-          setPost(res.data.post)
-          setLoading(false)},
-      )
-      .catch((err) => {setError(true)
-        setLoading(false)
-      }
-      )
+      .then((res) => {
+        setComments(res.data.comments);
+        setPost(res.data.post);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(true);
+        setLoading(false);
+      });
   }, []);
 
-
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     let url = `https://tweeter-test-yin.herokuapp.com/${post_id}/comments`;
     axios({
       method: "get",
@@ -50,29 +47,26 @@ const FullPost = (props) => {
         Authorization: props.token,
       },
     })
-      .then(
-        (res) => {setComments(res.data.comments)
-          setPost(res.data.post)
-          setLoading(false)},
-      )
-      .catch((err) => {setError(true)
-        setLoading(false)
-      }
-      )
+      .then((res) => {
+        setComments(res.data.comments);
+        setPost(res.data.post);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(true);
+        setLoading(false);
+      });
   }, [props.commentSent]);
-
-
-  console.log(comments)
 
   return (
     <div className="fullPost">
-      {
-        loading && <Spinner/>
-      }
-      {
-        error &&  <p style={{'display': 'flex', 'justifyContent': 'center'}}>Sorry, an error occured. Please try again.</p>
-      }
-      {!loading && post && 
+      {loading && <Spinner />}
+      {error && (
+        <p style={{ display: "flex", justifyContent: "center" }}>
+          Sorry, an error occured. Please try again.
+        </p>
+      )}
+      {!loading && post && (
         <Post
           user={post.user}
           caption={post.caption}
@@ -86,26 +80,25 @@ const FullPost = (props) => {
           liked={post.liked}
           likes={post.likes}
         />
-      }
+      )}
 
-      {
-          
-        comments.map((comment, index) => (
-          <Comment
+      {comments.map((comment, index) => (
+        <Comment
           id={comment._id.$oid}
-            user={comment.user}
-            caption={comment.caption}
-            datetime={comment.createdAt}
-            likes={comment.likes}
-            liked={comment.liked}
-            date={comment.createdAt}
-            key={index}
-          />
-        ))}
-        {
-          !loading && !error &&  comments.length === 0 &&
-          <p style={{'display': 'flex', 'justifyContent': 'center'}}>There are no comments yet.</p>
-        }
+          user={comment.user}
+          caption={comment.caption}
+          datetime={comment.createdAt}
+          likes={comment.likes}
+          liked={comment.liked}
+          date={comment.createdAt}
+          key={index}
+        />
+      ))}
+      {!loading && !error && comments.length === 0 && (
+        <p style={{ display: "flex", justifyContent: "center" }}>
+          There are no comments yet.
+        </p>
+      )}
     </div>
   );
 };
@@ -115,7 +108,7 @@ const mapStateToProps = (state) => {
     imageURL: state.imageURL,
     username: state.username,
     token: state.token,
-    commentSent: state.commentSent
+    commentSent: state.commentSent,
   };
 };
 

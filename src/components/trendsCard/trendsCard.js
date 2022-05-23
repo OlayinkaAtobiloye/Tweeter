@@ -1,7 +1,7 @@
 import React from "react";
 import "./trendsCard.css";
 
-const TrendsCard = props => {
+const TrendsCard = (props) => {
   return (
     <section className="trendsCard">
       <p>Trends for you</p>

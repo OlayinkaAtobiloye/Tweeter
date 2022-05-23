@@ -4,8 +4,7 @@ import * as actions from "../../store/action";
 import { connect } from "react-redux";
 import * as actionTypes from "../../store/actionTypes";
 import axios from "axios";
-import { useNavigate, useLocation} from 'react-router-dom';
-
+import { useNavigate, useLocation } from "react-router-dom";
 
 class CreateTweet extends Component {
   state = {
@@ -16,7 +15,7 @@ class CreateTweet extends Component {
     },
     permission: 1,
     tweetimageURL: null,
-    postedTweet: null
+    postedTweet: null,
   };
 
   setPermission = (value) => {
@@ -25,13 +24,12 @@ class CreateTweet extends Component {
 
   componentDidUpdate() {
     if (this.props.postedTweet || !this.props.postedTweet) {
-      setTimeout(() => this.setState({postedTweet: null}), 3000);
+      setTimeout(() => this.setState({ postedTweet: null }), 3000);
     }
   }
 
-
   postTweet = (event) => {
-    const button = document.querySelector('#tweetButton');
+    const button = document.querySelector("#tweetButton");
     button.disabled = true;
     event.preventDefault();
     const data = this.state.tweet;
@@ -47,21 +45,18 @@ class CreateTweet extends Component {
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
-        "Authorization": this.props.token
-      }
+        Authorization: this.props.token,
+      },
     })
-    .then((res) =>
-      {button.disabled = false;
-        this.props.navigate(`/${res.data.user.username}/${res.data.post_id}`)
-      this.setState({postedTweet: true})
-      }
-    )
-    .catch(
-      (err) =>{
-      this.setState({postedTweet: false})
-      button.disabled = false;
-      }
-    )
+      .then((res) => {
+        button.disabled = false;
+        this.props.navigate(`/${res.data.user.username}/${res.data.post_id}`);
+        this.setState({ postedTweet: true });
+      })
+      .catch((err) => {
+        this.setState({ postedTweet: false });
+        button.disabled = false;
+      });
   };
 
   setImage = () => {
@@ -87,7 +82,9 @@ class CreateTweet extends Component {
   };
 
   handleNewTweet = (event) => {
-    this.setState({ tweet: {  ...this.state.tweet, caption: event.target.value } });
+    this.setState({
+      tweet: { ...this.state.tweet, caption: event.target.value },
+    });
   };
 
   handleKeyDown(e) {
@@ -117,6 +114,7 @@ class CreateTweet extends Component {
                 className="tweetBox"
                 onChange={this.handleNewTweet}
                 onKeyDown={this.handleKeyDown}
+                maxLength="250"
               />
               <img src={this.state.tweetimageURL} width="100%" />
             </div>
@@ -155,7 +153,9 @@ class CreateTweet extends Component {
                 </div>
               ) : null}
             </div>
-            <button id="tweetButton" onClick={this.postTweet}>Tweet</button>
+            <button id="tweetButton" onClick={this.postTweet}>
+              Tweet
+            </button>
           </div>
         </div>
       </React.Fragment>
@@ -168,7 +168,7 @@ const mapStateToProps = (state) => {
     imageURL: state.imageURL,
     error: state.error,
     postedTweet: state.postedTweet,
-    token: state.token
+    token: state.token,
   };
 };
 
@@ -180,17 +180,15 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-
 const withHooksHOC = (Component) => {
-  return props => {
+  return (props) => {
     const navigate = useNavigate();
     const location = useLocation();
-    return(
-      <Component navigate={navigate} location={location} {...props}/>
-    )
-  }
+    return <Component navigate={navigate} location={location} {...props} />;
+  };
 };
 
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(withHooksHOC(CreateTweet));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withHooksHOC(CreateTweet));

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Spinner from "../spinner/spinner";
 import { useParams } from "react-router-dom";
 
-class Tweets extends React.Component {
+class Retweets extends React.Component {
   state = {
     tweets: [],
     loading: true,
@@ -14,7 +14,8 @@ class Tweets extends React.Component {
 
   componentDidMount() {
     const userId = this.props.params.user_id;
-    let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/posts`;
+    console.log(this.props);
+    let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/retweets`;
     axios({
       method: "get",
       url: url,
@@ -33,7 +34,7 @@ class Tweets extends React.Component {
     if (prevProps.params.user_id !== this.props.params.user_id) {
       this.setState({ loading: true });
       const userId = this.props.params.user_id;
-      let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/posts`;
+      let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/retweets`;
       axios({
         method: "get",
         url: url,
@@ -49,7 +50,6 @@ class Tweets extends React.Component {
         .catch((err) => this.setState({ error: true, loading: false }));
     }
   }
-
   render() {
     return (
       <section>
@@ -80,7 +80,7 @@ class Tweets extends React.Component {
           !this.state.error &&
           this.state.tweets.length === 0 && (
             <p style={{ display: "flex", justifyContent: "center" }}>
-              This user doesn't have any post yet.
+              This user hasn't retweeted any post yet.
             </p>
           )}
       </section>
@@ -103,4 +103,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(withHooksHOC(Tweets));
+export default connect(mapStateToProps, null)(withHooksHOC(Retweets));

@@ -9,7 +9,7 @@ class Bookmarks extends React.Component {
   state = {
     tweets: [],
     loading: true,
-    error: false
+    error: false,
   };
   componentDidMount() {
     let url = "https://tweeter-test-yin.herokuapp.com/bookmarks";
@@ -21,20 +21,22 @@ class Bookmarks extends React.Component {
         Authorization: this.props.token,
       },
     })
-      .then((res) => this.setState({ tweets: res.data.bookmarks, loading: false}))
-      .catch((err) => this.setState({error: true, loading: false}));
+      .then((res) =>
+        this.setState({ tweets: res.data.bookmarks, loading: false })
+      )
+      .catch((err) => this.setState({ error: true, loading: false }));
   }
 
   render() {
     return (
       <section>
-        {
-          this.state.loading && <Spinner/>
-        }
-        {
-        this.state.error &&  <p style={{'display': 'flex', 'justifyContent': 'center'}}>Sorry, an error occured. Please try again.</p>
-      }
-        {this.state.tweets.map((post) => (
+        {this.state.loading && <Spinner />}
+        {this.state.error && (
+          <p style={{ display: "flex", justifyContent: "center" }}>
+            Sorry, an error occured. Please try again.
+          </p>
+        )}
+        {this.state.tweets.map((post, index) => (
           <Post
             user={post.user}
             caption={post.caption}
@@ -47,13 +49,16 @@ class Bookmarks extends React.Component {
             likes={post.likes}
             retweeted={post.retweeted}
             saved={post.saved}
+            key={index}
           />
         ))}
-        {!this.state.loading && !this.state.error && this.state.tweets.length === 0  && (
-          <p style={{ display: "flex", justifyContent: "center" }}>
-            You don't have any saved post.
-          </p>
-        )}
+        {!this.state.loading &&
+          !this.state.error &&
+          this.state.tweets.length === 0 && (
+            <p style={{ display: "flex", justifyContent: "center" }}>
+              You don't have any saved post.
+            </p>
+          )}
       </section>
     );
   }

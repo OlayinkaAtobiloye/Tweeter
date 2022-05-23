@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./post.css";
 import Comment from "../comment/comment";
 import { Link } from "react-router-dom";
@@ -16,19 +16,17 @@ const Post = (props) => {
   const [retweets, setretweets] = useState(props.retweets);
   const [saved, setSaved] = useState(props.saved);
   const [saves, setSaves] = useState(props.saves);
-  const [comment, setComment] = useState('');
-  const [commentSent, setCommentsent] = useState(null)
+  const [comment, setComment] = useState("");
+  const [commentSent, setCommentsent] = useState(null);
 
-  
   const handleComment = (event) => {
-      setComment(event.target.value)
-  }
+    setComment(event.target.value);
+  };
 
   const sendComment = () => {
-    console.log(comment)
-    setComment('')
+    setComment("");
     let data = new FormData();
-    data.append('caption', comment)
+    data.append("caption", comment);
     let url = `https://tweeter-test-yin.herokuapp.com/${props.post_id.$oid}/comments`;
     axios({
       method: "post",
@@ -40,17 +38,12 @@ const Post = (props) => {
       },
     })
       .then((res) => {
-        setCommentsent(true)
-        props.onSendComment(commentSent)
-        setCommentsent(null)
-        setTimeout(
-          () => {props.onSendComment(commentSent)},
-          2000
-        )
-        navigate(`/${props.username}/${props.post_id.$oid}`)
+        setCommentsent(!commentSent);
+        props.onSendComment(commentSent);
+        navigate(`/${props.username}/${props.post_id.$oid}`);
       })
-      .catch((err) => setCommentsent(false));
-  }
+      .catch((err) => console.log(false));
+  };
 
   const likePost = () => {
     setLiked(!liked);
@@ -106,12 +99,15 @@ const Post = (props) => {
   return (
     <article className="post">
       {commentSent === false ? (
-          <p className="tweetFail">An error occured. Please try again.</p>
-        ) : null}
+        <p className="tweetFail">An error occured. Please try again.</p>
+      ) : null}
       <header className="postingDetails">
         <img className="posterImage" src={props.user.profile_image} />
         <div>
-          <Link to={`/profile/tweets/${props.user._id.$oid}`} className="posterName">
+          <Link
+            to={`/profile/tweets/${props.user._id.$oid}`}
+            className="posterName"
+          >
             {props.user.username}
           </Link>
           <p className="postingDate">
@@ -120,7 +116,10 @@ const Post = (props) => {
           </p>
         </div>
       </header>
-      <Link className="tweet" to={`/${props.username}/${props.post_id.$oid}`}>
+      <Link
+        className="tweet"
+        to={`/${props.user.username}/${props.post_id.$oid}`}
+      >
         {props.caption}
       </Link>
       <img className="postImage" src={props.image} />
@@ -172,10 +171,24 @@ const Post = (props) => {
       </div>
       <div className="commentCard">
         <img src={props.imageURL} className="posterImage" />
-        <div style={{'position': 'relative', 'width': '100%', 'display': 'flex', 'alignItems': 'center'}}>
-          <input className="inputComment" placeholder="Tweet your reply" onChange={handleComment} value={comment}/>
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <input
+            className="inputComment"
+            placeholder="Tweet your reply"
+            onChange={handleComment}
+            value={comment}
+          />
           {/* <i className="material-icons-outlined commentImageIcon">image</i> */}
-          <i className="material-icons-outlined sendIcon" onClick={sendComment}>send</i>
+          <i className="material-icons-outlined sendIcon" onClick={sendComment}>
+            send
+          </i>
         </div>
       </div>
       {/* <Comment/> */}
@@ -194,7 +207,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSendComment: (commentSent) => dispatch({type: 'SET_COMMENT', value: commentSent}),
+    onSendComment: (commentSent) =>
+      dispatch({ type: "SET_COMMENT", value: commentSent }),
   };
 };
 

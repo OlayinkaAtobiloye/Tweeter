@@ -20,20 +20,22 @@ export const authSuccess = (res) => {
 };
 
 export const saveSuccess = (res) => {
-    console.log(res)
   return {
     type: actionTypes.SAVE_SUCCESS,
     imageURL: res.profile_image,
     username: res.username,
     bio: res.bio,
     email: res.email,
-    message: res.message
+    message: res.message,
   };
 };
 
 export const saveDetails = (details) => {
-  let url = "https://tweeter-test-yin.herokuapp.com/profile";
+  const button = document.querySelector("#saveDetails");
   return (dispatch, getState) => {
+    let url = `https://tweeter-test-yin.herokuapp.com/${
+      getState().userId
+    }/profile`;
     axios
       .post(url, details, {
         headers: {
@@ -42,9 +44,11 @@ export const saveDetails = (details) => {
       })
       .then((response) => {
         dispatch(saveSuccess(response.data));
+        button.disabled = false;
       })
       .catch((error) => {
         dispatch(authFail(error.message));
+        button.disabled = false;
       });
   };
 };
@@ -78,7 +82,6 @@ export const auth = (email, password, method) => {
   };
 };
 
-
 export const postTweet = (tweet) => {
   return (dispatch, getState) => {
     let url = "https://tweeter-test-yin.herokuapp.com/posts/create";
@@ -88,14 +91,10 @@ export const postTweet = (tweet) => {
       data: tweet,
       headers: {
         "Content-Type": "multipart/form-data",
-        "Authorization": getState().token
-      }
+        Authorization: getState().token,
+      },
     })
-    .then(
-      dispatch({type: actionTypes.TWEET_SUCCESS})
-    )
-    .catch(
-      dispatch({type: actionTypes.TWEET_FAIL})
-    )
-  }
-}
+      .then(dispatch({ type: actionTypes.TWEET_SUCCESS }))
+      .catch(dispatch({ type: actionTypes.TWEET_FAIL }));
+  };
+};

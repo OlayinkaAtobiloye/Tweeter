@@ -1,16 +1,14 @@
-.authPage{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
+.authPage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
 }
 
-@media (max-width: 767px){
-
-    .authPage{
-        display: block;
-    }
-
+@media (max-width: 767px) {
+  .authPage {
+    display: block;
+  }
 }

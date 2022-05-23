@@ -1,0 +1,26 @@
+.bioComponent {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.bioComponent > img {
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border-radius: 50%;
+}
+
+.bioComponent > p {
+  margin-bottom: 12px;
+}
+
+.bioComponent a {
+  color: inherit;
+}

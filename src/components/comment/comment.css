@@ -1,57 +1,57 @@
-.Comment{
-    display: flex;
-    background: #FAFAFA;
-    align-items: self-start;
-    padding: 12px;
-    margin-bottom: 12px;
+.Comment {
+  display: flex;
+  background: #fafafa;
+  align-items: self-start;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
-.Comment > div > div:first-child > a:first-child{
-    font-family: Poppins;
-font-size: 14px;
-font-weight: 500;
-line-height: 21px;
-color: #000000;
-display: inline;
-margin-bottom: 12px;
+.Comment > div > div:first-child > a:first-child {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #000000;
+  display: inline;
+  margin-bottom: 12px;
 }
 
-.Comment > div > div > p:nth-child(2){
-    font-family: Noto Sans;
-font-weight: 500;
-font-size: 12px;
-line-height: 16px;
-color: #BDBDBD;
-display: inline;
-margin-left: 12px;
+.Comment > div > div > p:nth-child(2) {
+  font-family: Noto Sans;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #bdbdbd;
+  display: inline;
+  margin-left: 12px;
 }
 
-.Comment > div > div > p:nth-child(3){
-    font-family: Noto Sans;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
-    color: #4F4F4F;
-    margin-bottom: 12px;
+.Comment > div > div > p:nth-child(3) {
+  font-family: Noto Sans;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4f4f4f;
+  margin-bottom: 12px;
 }
 
-.Comment > div > div:nth-child(2) > a{
-display: inline-flex;
-align-items: center;
-margin-right: 12px;
-font-family: Noto Sans;
-font-weight: 600;
-font-size: 12px;
-line-height: 16px;
-color: #BDBDBD;
+.Comment > div > div:nth-child(2) > a {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 12px;
+  font-family: Noto Sans;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #bdbdbd;
 }
 
-.Comment > div > div:nth-child(2) > a > i{
-    margin-right: 6px;
-    /* height: 12px; */
+.Comment > div > div:nth-child(2) > a > i {
+  margin-right: 6px;
+  /* height: 12px; */
 }
 
-.Comment > div > div:nth-child(2){
-    display: flex;
-    align-items: center;
+.Comment > div > div:nth-child(2) {
+  display: flex;
+  align-items: center;
 }

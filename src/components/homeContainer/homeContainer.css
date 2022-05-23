@@ -1,8 +1,8 @@
-.homeContainer{
-    width: 60%;
+.homeContainer {
+  width: 60%;
 }
 @media (max-width: 767px) {
-    .homeContainer{
+  .homeContainer {
     width: 100%;
-    }
+  }
 }

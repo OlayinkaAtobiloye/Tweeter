@@ -8,7 +8,7 @@ import Spinner from "../spinner/spinner";
 class Feed extends React.Component {
   state = {
     tweets: [],
-    loading: true
+    loading: true,
   };
   componentDidMount() {
     let url = "https://tweeter-test-yin.herokuapp.com/feed";
@@ -23,18 +23,19 @@ class Feed extends React.Component {
       .then((res) =>
         this.setState(() => {
           return { tweets: res.data, loading: false };
-
         })
       )
-      .then(()=>console.log(this.state.tweets)).catch((err) => this.setState({error: true, loading: false}));
+      .catch((err) => this.setState({ error: true, loading: false }));
   }
 
   render() {
     return (
       <section>
-        {
-        this.state.error &&  <p style={{'display': 'flex', 'justifyContent': 'center'}}>Sorry, an error occured. Please try again.</p>
-      }
+        {this.state.error && (
+          <p style={{ display: "flex", justifyContent: "center" }}>
+            Sorry, an error occured. Please try again.
+          </p>
+        )}
         {this.state.tweets.map((post, index) => (
           <Post
             user={post.user}
@@ -52,9 +53,7 @@ class Feed extends React.Component {
             key={index}
           />
         ))}
-      {
-        this.state.loading && <Spinner/>
-      }
+        {this.state.loading && <Spinner />}
       </section>
     );
   }

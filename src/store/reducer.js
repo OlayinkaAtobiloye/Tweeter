@@ -14,8 +14,6 @@ let initialState = {
   postedTweet: null,
 };
 
-
-
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.AUTH_START:
@@ -24,21 +22,16 @@ const Reducer = (state = initialState, action) => {
         loading: true,
       };
     case actionTypes.AUTH_SUCCESS:
-      // localStorage.setItem(
-      //   'user',
-      //   action
-      // )
       return {
         ...state,
         loading: false,
-        userId: action.userId,
         token: action.token,
         auth: true,
         userId: action.userId,
         imageURL: action.imageURL,
         username: action.username,
         bio: action.bio,
-        email: action.email
+        email: action.email,
       };
     case actionTypes.AUTH_FAIL:
       return {
@@ -46,51 +39,51 @@ const Reducer = (state = initialState, action) => {
         loading: false,
         error: action.error,
       };
-      case actionTypes.SAVE_SUCCESS:
-        return {
-            ...state,
-            imageURL: action.imageURL,
-      username: action.username,
-      bio: action.bio,
-      email: action.email,
-      message: action.message
-          }; 
+    case actionTypes.SAVE_SUCCESS:
+      return {
+        ...state,
+        imageURL: action.imageURL,
+        username: action.username,
+        bio: action.bio,
+        email: action.email,
+        message: action.message,
+      };
 
-          case actionTypes.RESET_POSTED_TWEET:
-            console.log(state.token)
-    return{
-      ...state,
-      postedTweet: null
-    };
+    case actionTypes.RESET_POSTED_TWEET:
+      console.log(state.token);
+      return {
+        ...state,
+        postedTweet: null,
+      };
 
     case actionTypes.TWEET_SUCCESS:
-      return{
+      return {
         ...state,
-        postedTweet: true
+        postedTweet: true,
       };
-      case actionTypes.TWEET_FAIL:
-        return{
-          ...state, postedTweet: false
-        };
+    case actionTypes.TWEET_FAIL:
+      return {
+        ...state,
+        postedTweet: false,
+      };
 
-        case actionTypes.RESET_ERROR:
-          return{
-            ...state,
-            error: null
-          }
-          case actionTypes.SET_LOGOUT:
-            return{
-              initialState
-            }
-            case 'SET_COMMENT':
-              return{
-                ...state,
-                commentSent: action.value
-              }
+    case actionTypes.RESET_ERROR:
+      return {
+        ...state,
+        error: null,
+      };
+    case actionTypes.SET_LOGOUT:
+      return {
+        initialState,
+      };
+    case "SET_COMMENT":
+      return {
+        ...state,
+        commentSent: action.value,
+      };
+    default:
+      return state;
   }
-
-  
-  return { ...state };
 };
 
 export default Reducer;

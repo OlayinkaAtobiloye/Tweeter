@@ -27,15 +27,14 @@ const ProfileDropdown = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    userId: state.userId
+    userId: state.userId,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch({type: "SET_LOGOUT"})
+    logout: () => dispatch({ type: "SET_LOGOUT" }),
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileDropdown);

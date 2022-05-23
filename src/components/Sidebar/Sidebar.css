@@ -1,9 +1,12 @@
-.sideBar{
-    width: 35%;
+.sideBar {
+  width: 35%;
+  align-self: flex-start;
+  position: sticky;
+  top: 10px;
 }
 
 @media (max-width: 767px) {
-    .sideBar{
-        display: none;
-    }
+  .sideBar {
+    display: none;
+  }
 }

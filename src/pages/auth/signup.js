@@ -25,45 +25,31 @@ class SignupPage extends React.Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    const formdata = this.state.requestBody
+    const formdata = this.state.requestBody;
     this.props.onAuth(formdata["email"], formdata["password"]);
   };
 
-  componentDidUpdate(){
-    if (this.props.error){
-      setTimeout(this.props.onResetError, 2000)
-    } 
+  componentDidUpdate() {
+    if (this.props.error) {
+      setTimeout(this.props.onResetError, 2000);
+    }
   }
 
+  render() {
+    let errorMessage = <p style={{ color: "red" }}>{this.props.error}</p>;
 
-  render() {    
-    let errorMessage =
-  <p style={{color: "red"}}>{this.props.error}</p>
-    
     return (
       <Auth>
-        {
-        this.props.loading 
-        ?
-        <Loader/>
-        :
-        null
-      }
+        {this.props.loading ? <Loader /> : null}
         <div className="signupPage">
           <Link to="/">
             <img src={Tweeter} className="tweeterHome" />
           </Link>
           <p>Join thousands of tweeps from around the world </p>
-          <p>
-            Happening now. Join Tweeter today.
-          </p>
+          <p>Happening now. Join Tweeter today.</p>
           {errorMessage}
           <form autoComplete="off" onSubmit={this.submitHandler}>
-            <i
-              className="material-icons-outlined"
-            >
-              email
-            </i>
+            <i className="material-icons-outlined">email</i>
             <input
               name="email"
               type="email"
@@ -71,11 +57,7 @@ class SignupPage extends React.Component {
               onChange={this.inputChangedHandler}
               value={this.state.requestBody.email}
             />
-            <i
-              className="material-icons-outlined"
-            >
-              lock
-            </i>
+            <i className="material-icons-outlined">lock</i>
             <input
               name="password"
               type="password"
@@ -97,17 +79,17 @@ class SignupPage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  console.log(state);
   return {
     error: state.error,
-    loading: state.loading
+    loading: state.loading,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onAuth: (email, password) => dispatch(actions.auth(email, password, true)),
-    onResetError: () => dispatch({type: "RESET_ERROR"}),
+    onResetError: () => dispatch({ type: "RESET_ERROR" }),
   };
 };
 
