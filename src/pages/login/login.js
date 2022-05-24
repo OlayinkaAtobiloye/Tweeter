@@ -36,7 +36,7 @@ class LoginPage extends React.Component {
       setTimeout(this.props.onResetError, 2000);
     }
     if (this.props.auth) {
-      setTimeout(() => this.props.logout, 1000);
+      // setTimeout(() => this.props.logout, 1000);
       if (this.props.location.state?.from) {
         this.props.navigate(this.props.location.state.from);
       }

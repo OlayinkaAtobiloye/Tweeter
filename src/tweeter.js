@@ -29,7 +29,12 @@ const Tweeter = (props) => {
   return (
     <Routes>
       <Route path="register" element={<Navigate to="/signup" />} />
-      <Route path="signup" element={<SignupPage />} />
+      {
+        props.auth ? <Route path="signup" element={<Navigate to="/settings"/>} />
+        :
+        <Route path="signup" element={<SignupPage />} />
+
+      }
       {props.auth ? (
         <Route exact path="/" element={<HomePage />} />
       ) : (

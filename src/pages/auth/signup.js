@@ -79,7 +79,6 @@ class SignupPage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     error: state.error,
     loading: state.loading,

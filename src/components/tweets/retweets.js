@@ -14,7 +14,6 @@ class Retweets extends React.Component {
 
   componentDidMount() {
     const userId = this.props.params.user_id;
-    console.log(this.props);
     let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/retweets`;
     axios({
       method: "get",

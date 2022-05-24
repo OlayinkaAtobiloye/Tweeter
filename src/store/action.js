@@ -74,10 +74,15 @@ export const auth = (email, password, method) => {
     axios
       .post(url, authData)
       .then((response) => {
-        dispatch(authSuccess(response.data));
+        if (response.status == 400 || response.status == 500){
+          throw response
+        } 
+        else{
+          dispatch(authSuccess(response.data));
+        }
       })
       .catch((error) => {
-        dispatch(authFail(error.message));
+        dispatch(authFail(error.response.data.message));
       });
   };
 };

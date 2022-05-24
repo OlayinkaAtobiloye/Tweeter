@@ -117,9 +117,24 @@
 
   .about {
     margin-bottom: 8px;
+    font-size: 12px;
+    margin-top: 8px;
   }
 
   .stats {
     display: inline;
+    margin-right: 8px;
   }
+
+  .userName {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 28px;
+}
+}
+
+@media (max-width: 820px){
+.container{
+  width: 95vw;
+}
 }

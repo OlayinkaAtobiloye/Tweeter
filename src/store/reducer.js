@@ -50,7 +50,6 @@ const Reducer = (state = initialState, action) => {
       };
 
     case actionTypes.RESET_POSTED_TWEET:
-      console.log(state.token);
       return {
         ...state,
         postedTweet: null,
