@@ -5,7 +5,7 @@ import Container from "../../components/container/container";
 import Header from "../../components/header/header";
 import LinksCard from "../../components/linksCard/linksCard";
 import HomeContainer from "../../components/homeContainer/homeContainer";
-import SideBar from "../../components/sidebar/sidebar";
+import SideBar from "../../components/Sidebar/Sidebar";
 import Tweets from "../../components/tweets/tweets";
 import { useParams } from "react-router-dom";
 import Media from "../../components/tweets/media";

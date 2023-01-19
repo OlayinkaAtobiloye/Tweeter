@@ -1,5 +1,5 @@
 import React from "react";
-import "./sidebar.css";
+import "./Sidebar.css";
 
 const SideBar = (props) => {
   return <div className="sideBar">{props.children}</div>;

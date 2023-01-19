@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./header.css";
 import Tweeter from "../../Images/tweeter.svg";
 import TweeterMobile from "../../Images/tweeter-small.svg";
-import UserImage from "../../Images/johndoe.jpg";
 import ProfileDropdown from "../profilebackdrop/profilebackdrop";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
@@ -15,7 +14,6 @@ const Header = (props) => {
       <Link to="/" className="homePage">
         <img src={Tweeter} className="tweeter" />
         <img src={TweeterMobile} className="tweeterMobile" />
-        {/* <h1 className="appName">Tweeter</h1> */}
       </Link>
       <nav className="navBar">
         <NavLink className="navLink" to="/">

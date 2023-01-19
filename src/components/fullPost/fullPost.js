@@ -16,7 +16,7 @@ const FullPost = (props) => {
 
   useEffect(() => {
     setLoading(true);
-    let url = `https://tweeter-test-yin.herokuapp.com/${post_id}/comments`;
+    let url = `https://tweeter-8qqa.onrender.com/${post_id}/comments`;
     axios({
       method: "get",
       url: url,

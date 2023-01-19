@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import Auth from "../../components/auth/auth";
 import { Link } from "react-router-dom";
 import ProfileDropdown from "../../components/profilebackdrop/profilebackdrop";
-import TweeterMobile from "../../Images/tweeter-small.svg";
-import UserImage from "../../Images/johndoe.jpg";
 import Tweeter from "../../Images/tweeter.svg";
 import "./profile.css";
-import updateprofile from "../updateprofile/updateprofile";
 import { connect } from "react-redux";
 
 const ProfilePage = (props) => {
@@ -59,10 +55,6 @@ const ProfilePage = (props) => {
           <p>EMAIL</p>
           <p>{props.email}</p>
         </div>
-        {/* <div className="profileDiv">
-          <p typeof="password">PASSWORD</p>
-          <p>dunno</p>
-        </div> */}
       </div>
     </div>
   );

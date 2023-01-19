@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import UserProfile from "../userProfile/userProfile";
+import UserProfile from "../UserProfile/UserProfile";
 import "./followCard.css";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -8,7 +8,7 @@ const FollowCard = (props) => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(false);
   useEffect(() => {
-    let url = `https://tweeter-test-yin.herokuapp.com/users/suggestions`;
+    let url = `https://tweeter-8qqa.onrender.com/users/suggestions`;
     axios({
       method: "get",
       url: url,

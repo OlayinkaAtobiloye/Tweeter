@@ -36,7 +36,6 @@ class LoginPage extends React.Component {
       setTimeout(this.props.onResetError, 2000);
     }
     if (this.props.auth) {
-      // setTimeout(() => this.props.logout, 1000);
       if (this.props.location.state?.from) {
         this.props.navigate(this.props.location.state.from);
       }
@@ -73,13 +72,6 @@ class LoginPage extends React.Component {
             />
             <button>Start tweeting now</button>
           </form>
-          {/* <div>
-          {/* <p>or continue with these social profile</p> */}
-          {/* <i class="fa fa-google"></i>
-                <i class="fa fa-facebook"></i>
-                <i class="fa fa-twitter"></i>
-                <i class="fa fa-github"></i> 
-        </div> */}
           <p>
             Don't have an account yet? <Link to="/signup">Register</Link>
           </p>

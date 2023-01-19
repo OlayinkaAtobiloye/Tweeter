@@ -3,10 +3,7 @@ import "./profileCard.css";
 import { connect } from "react-redux";
 import axios from "axios";
 import {
-  useParams,
-  useSearchParams,
-  useLocation,
-  useNavigate,
+  useParams
 } from "react-router-dom";
 import Spinner from "../spinner/spinner";
 
@@ -25,7 +22,7 @@ const ProfileCard = (props) => {
   const handleFollow = () => {
     setFollowers(followers + 1);
     setYoufollow(!youfollow);
-    let url = `https://tweeter-test-yin.herokuapp.com/${userId}/follow`;
+    let url = `https://tweeter-8qqa.onrender.com/${userId}/follow`;
     axios
       .get(url, {
         headers: {
@@ -43,7 +40,7 @@ const ProfileCard = (props) => {
   };
 
   useEffect(() => {
-    let url = `https://tweeter-test-yin.herokuapp.com/${userId}/profile`;
+    let url = `https://tweeter-8qqa.onrender.com/${userId}/profile`;
     axios
       .get(url, {
         headers: {
@@ -59,6 +56,7 @@ const ProfileCard = (props) => {
         setBio(response.data.bio);
         setYoufollow(response.data.you_follow);
         setLoading(false);
+        setError(false);
       })
       .catch((error) => {
         setError(true);
@@ -67,7 +65,7 @@ const ProfileCard = (props) => {
 
   useEffect(() => {
     setLoading(true);
-    let url = `https://tweeter-test-yin.herokuapp.com/${userId}/profile`;
+    let url = `https://tweeter-8qqa.onrender.com/${userId}/profile`;
     axios
       .get(url, {
         headers: {
@@ -83,6 +81,7 @@ const ProfileCard = (props) => {
         setBio(response.data.bio);
         setYoufollow(response.data.you_follow);
         setLoading(false);
+        setError(false);
       })
       .catch((error) => {
         setError(true);

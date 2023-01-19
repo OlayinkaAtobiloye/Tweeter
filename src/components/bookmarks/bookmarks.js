@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import Post from "../post/post";
 import React from "react";
 import axios from "axios";
@@ -12,7 +11,7 @@ class Bookmarks extends React.Component {
     error: false,
   };
   componentDidMount() {
-    let url = "https://tweeter-test-yin.herokuapp.com/bookmarks";
+    let url = "hhttps://tweeter-8qqa.onrender.com/bookmarks";
     axios({
       method: "get",
       url: url,
@@ -22,7 +21,7 @@ class Bookmarks extends React.Component {
       },
     })
       .then((res) =>
-        this.setState({ tweets: res.data.bookmarks, loading: false })
+        this.setState({ tweets: res.data.bookmarks, loading: false, error: false})
       )
       .catch((err) => this.setState({ error: true, loading: false }));
   }

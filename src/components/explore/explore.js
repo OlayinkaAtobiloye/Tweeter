@@ -16,7 +16,7 @@ const Explore = (props) => {
   useEffect(() => {
     if (keyword != "") {
       setLoading(true);
-      let url = `https://tweeter-test-yin.herokuapp.com/search/${keyword}`;
+      let url = `https://tweeter-8qqa.onrender.com/search/${keyword}`;
       axios({
         method: "get",
         url: url,

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ProfileDropdown from "../../components/profilebackdrop/profilebackdrop";
 import UserImage from "../../Images/johndoe.jpg";
-import Loader from "../../components/loader/loader";
 import Tweeter from "../../Images/tweeter.svg";
 import "./updateprofile.css";
 import { connect } from "react-redux";
@@ -79,7 +78,6 @@ class UpdateProfilePage extends React.Component {
     this.setState(() => {
       return { imageURL: imageurl };
     });
-    // this.setImageAction
   };
 
   setImageAction = () => {
@@ -115,7 +113,6 @@ class UpdateProfilePage extends React.Component {
     const formData = new FormData();
     stateKeys.map((key) => {
       formData.append(key, data[key]);
-      // console.log(key, formData.get(key))
     });
 
     this.props.onSubmit(formData);
@@ -124,9 +121,6 @@ class UpdateProfilePage extends React.Component {
   render() {
     return (
       <div className="editProfile">
-        {/* {
-          this.state.loading && <Loader/>
-        } */}
         <header className="profileHeader">
           <Link to="/">
             <img src={Tweeter} />

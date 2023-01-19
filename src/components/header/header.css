@@ -5,7 +5,6 @@
   justify-content: space-around;
   flex-basis: content;
   background-color: #ffffff;
-  /* margin-bottom: 32px; */
 }
 a {
   text-decoration: none;
@@ -40,8 +39,6 @@ a {
 
 .navLink.active {
   color: #2f80ed;
-  /* border-bottom: 3px solid #2f80ed;
-  border-radius: 8px 8px 0px 0px; */
 }
 
 .appName {
@@ -72,7 +69,6 @@ a {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  /* margin-right: 8px; */
   object-fit: cover;
   margin-right: 16px;
 }
@@ -104,7 +100,6 @@ button:hover {
     display: none;
   }
   .header {
-    /* margin: 16px; */
     height: 50px;
     justify-content: space-between;
   }

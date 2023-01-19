@@ -10,7 +10,7 @@ const Comment = (props) => {
 
   const likeComment = () => {
     setLiked(!liked);
-    let url = `https://tweeter-test-yin.herokuapp.com/comment/${props.id}/like`;
+    let url = `hhttps://tweeter-8qqa.onrender.com/comment/${props.id}/like`;
     axios({
       method: "get",
       url: url,

@@ -38,7 +38,7 @@ class CreateTweet extends Component {
     stateKeys.map((key) => {
       formData.append(key, data[key]);
     });
-    let url = "https://tweeter-test-yin.herokuapp.com/posts/create";
+    let url = "https://tweeter-8qqa.onrender.com/posts/create";
     axios({
       method: "post",
       url: url,

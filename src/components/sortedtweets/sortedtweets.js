@@ -1,5 +1,4 @@
 import React from "react";
-// import './sortedtweets.css';
 
 const SortedTweets = (props) => {
   return (

@@ -66,9 +66,6 @@ class SignupPage extends React.Component {
             />
             <button>Start tweeting now</button>
           </form>
-          {/* <div>
-            <p>or continue with these social profile</p>
-          </div> */}
           <p>
             Already a member? <Link to="/login">Login</Link>
           </p>

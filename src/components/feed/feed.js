@@ -11,7 +11,7 @@ class Feed extends React.Component {
     loading: true,
   };
   componentDidMount() {
-    let url = "https://tweeter-test-yin.herokuapp.com/feed";
+    let url = "https://tweeter-8qqa.onrender.com/feed";
     axios({
       method: "get",
       url: url,

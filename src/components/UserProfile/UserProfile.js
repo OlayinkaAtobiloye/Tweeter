@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import HeaderImage from "../../Images/traveller.jpg";
-import "./userProfile.css";
+import "./UserProfile.css";
 
 const UserProfile = (props) => {
   const [youfollow, setYoufollow] = useState(props.you_follow);
@@ -12,7 +11,7 @@ const UserProfile = (props) => {
   const handleFollow = () => {
     setFollowers(followers + 1);
     setYoufollow(!youfollow);
-    let url = `https://tweeter-test-yin.herokuapp.com/${props.user._id.$oid}/follow`;
+    let url = `https://tweeter-8qqa.onrender.com/${props.user._id.$oid}/follow`;
     axios
       .get(url, {
         headers: {
@@ -42,7 +41,6 @@ const UserProfile = (props) => {
         </button>
       </div>
       <p>{props.bio}</p>
-      {/* <img src={HeaderImage}/> */}
     </section>
   );
 };

@@ -7,7 +7,7 @@ import SignupPage from "./pages/auth/signup";
 import ProfilePage from "./pages/profile/profile";
 import UpdateProfilePage from "./pages/updateprofile/updateprofile";
 import { connect } from "react-redux";
-import User from "./pages/user/user";
+import User from "./pages/User/User";
 import React from "react";
 import FullPostPage from "./pages/fullpostpage/fullpostpage";
 

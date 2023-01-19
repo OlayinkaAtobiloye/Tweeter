@@ -27,7 +27,7 @@ const Post = (props) => {
     setComment("");
     let data = new FormData();
     data.append("caption", comment);
-    let url = `https://tweeter-test-yin.herokuapp.com/${props.post_id.$oid}/comments`;
+    let url = `https://tweeter-8qqa.onrender.com/${props.post_id.$oid}/comments`;
     axios({
       method: "post",
       url: url,

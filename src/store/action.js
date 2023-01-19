@@ -33,7 +33,7 @@ export const saveSuccess = (res) => {
 export const saveDetails = (details) => {
   const button = document.querySelector("#saveDetails");
   return (dispatch, getState) => {
-    let url = `https://tweeter-test-yin.herokuapp.com/${
+    let url = `https://tweeter-8qqa.onrender.com/${
       getState().userId
     }/profile`;
     axios
@@ -67,9 +67,9 @@ export const auth = (email, password, method) => {
       email: email,
       password: password,
     };
-    let url = "https://tweeter-test-yin.herokuapp.com/register";
+    let url = "https://tweeter-8qqa.onrender.com/register";
     if (!method) {
-      url = "https://tweeter-test-yin.herokuapp.com/login";
+      url = "https://tweeter-8qqa.onrender.com/login";
     }
     axios
       .post(url, authData)
@@ -89,7 +89,7 @@ export const auth = (email, password, method) => {
 
 export const postTweet = (tweet) => {
   return (dispatch, getState) => {
-    let url = "https://tweeter-test-yin.herokuapp.com/posts/create";
+    let url = "https://tweeter-8qqa.onrender.com/posts/create";
     axios({
       method: "post",
       url: url,

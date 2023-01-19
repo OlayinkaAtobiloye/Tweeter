@@ -14,7 +14,7 @@ class Tweets extends React.Component {
 
   componentDidMount() {
     const userId = this.props.params.user_id;
-    let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/posts`;
+    let url = `https://tweeter-8qqa.onrender.com/user/${userId}/posts`;
     axios({
       method: "get",
       url: url,
@@ -33,7 +33,7 @@ class Tweets extends React.Component {
     if (prevProps.params.user_id !== this.props.params.user_id) {
       this.setState({ loading: true });
       const userId = this.props.params.user_id;
-      let url = `https://tweeter-test-yin.herokuapp.com/user/${userId}/posts`;
+      let url = `https://tweeter-8qqa.onrender.com/user/${userId}/posts`;
       axios({
         method: "get",
         url: url,
